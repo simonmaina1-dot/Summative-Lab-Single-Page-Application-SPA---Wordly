@@ -1,3 +1,6 @@
+// ============================
+// Pure functions (exported for tests)
+// ============================
 
 async function fetchWord(word) {
   const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
@@ -41,12 +44,16 @@ function displayResults(data) {
   return html;
 }
 
-// DOM interactions (not executed during tests)
+// ============================
+// DOM interactions (only run in browser, not in Jest)
+// ============================
 
-if (typeof document !== 'undefined') {
+function initializeSPA() {
   const form = document.getElementById('searchForm');
   const input = document.getElementById('searchInput');
   const results = document.getElementById('results');
+
+  if (!form || !input || !results) return;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -69,7 +76,12 @@ if (typeof document !== 'undefined') {
   };
 }
 
-// Export for Jest
+// Only run DOM code if in browser
+if (typeof document !== 'undefined') {
+  window.addEventListener('DOMContentLoaded', initializeSPA);
+}
+
+// Export functions for Jest
 if (typeof module !== 'undefined') {
   module.exports = { fetchWord, parseMeanings, displayResults };
 }
