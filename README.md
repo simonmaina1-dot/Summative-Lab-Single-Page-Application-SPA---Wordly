@@ -2,7 +2,7 @@ Wordly SPA
 
 Wordly SPA is a Single Page Application (SPA) dictionary that allows users to search for a word and retrieve its definitions, pronunciation, examples, synonyms, and source information — all without reloading the page. This project demonstrates the use of JavaScript, HTML, CSS, and fetch requests to interact with an external dictionary API.
 
-Features
+main Features
 
 Search Words: Users can input a word to search.
 
