@@ -44,9 +44,7 @@ function displayResults(data) {
   return html;
 }
 
-// ============================
 // DOM interactions (only run in browser, not in Jest)
-// ============================
 
 function initializeSPA() {
   const form = document.getElementById('searchForm');
